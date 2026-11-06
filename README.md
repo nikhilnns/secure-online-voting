@@ -112,6 +112,10 @@ All endpoints except register/login/health need `Authorization: Bearer <token>`.
 | GET | `/api/admin/audit-logs?limit=` | admin | Audit trail |
 | GET | `/api/health` | public | Health check |
 
+## Repository
+
+https://github.com/Pratyushkesari/secure-online-voting
+
 ## Branching practice
 
 * `main` – stable, release-ready code
