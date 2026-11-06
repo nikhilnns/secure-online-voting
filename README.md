@@ -1,7 +1,10 @@
 # Secure Online Voting Management System
 
 A secure, web-based election platform built with **Python Flask**, **SQLAlchemy (SQLite)**, **JWT** and a vanilla **HTML/CSS/JS** single-page frontend.
-Course project for *Building Enterprise Applications (BCS703B)* – Information Science & Engineering, 2026-27.
+Course project for *Building Enterprise Applications (BCS703B)* – Dept. of Information Science & Engineering, BMS Institute of Technology & Management, 2026-27.
+
+**Team:** Nimala Nikhil Sai (1BY23IS138) · Nitin Kumar K (1BY23IS141) · Pavan B G (1BY23IS147) · Pratyush Kesari A (1BY23IS156)
+**Guide:** Prof. Purnima G J, Assistant Professor, Dept. of ISE
 
 ## Key features
 
