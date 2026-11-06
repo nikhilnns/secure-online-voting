@@ -1,0 +1,13 @@
+[MAIN]
+ignore=venv,.venv,instance
+
+[FORMAT]
+max-line-length=100
+
+[DESIGN]
+max-args=7
+max-positional-arguments=7
+max-locals=20
+
+[MESSAGES CONTROL]
+disable=missing-function-docstring

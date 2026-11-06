@@ -1,0 +1,95 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.1.1, pluggy-1.6.0 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: secure-online-voting
+configfile: pytest.ini
+testpaths: tests
+plugins: platformdirs-4.13.5, anyio-4.15.1, cov-7.1.0
+collecting ... collected 54 items
+
+tests/test_api_auth.py::test_health PASSED                               [  1%]
+tests/test_api_auth.py::test_register_creates_pending_voter PASSED       [  3%]
+tests/test_api_auth.py::test_register_rejects_invalid_email PASSED       [  5%]
+tests/test_api_auth.py::test_register_missing_fields_returns_400 PASSED  [  7%]
+tests/test_api_auth.py::test_register_non_json_body_returns_400 PASSED   [  9%]
+tests/test_api_auth.py::test_register_duplicate_returns_409 PASSED       [ 11%]
+tests/test_api_auth.py::test_login_returns_jwt PASSED                    [ 12%]
+tests/test_api_auth.py::test_login_wrong_password_generic_error PASSED   [ 14%]
+tests/test_api_auth.py::test_account_locks_after_five_failures PASSED    [ 16%]
+tests/test_api_auth.py::test_protected_route_requires_token PASSED       [ 18%]
+tests/test_api_auth.py::test_voter_cannot_access_admin_routes PASSED     [ 20%]
+tests/test_api_auth.py::test_me_endpoint PASSED                          [ 22%]
+tests/test_api_voting.py::test_admin_creates_election_and_candidates PASSED [ 24%]
+tests/test_api_voting.py::test_create_election_missing_title_returns_400 PASSED [ 25%]
+tests/test_api_voting.py::test_cannot_open_with_fewer_than_two_candidates PASSED [ 27%]
+tests/test_api_voting.py::test_voter_lists_open_elections_without_drafts PASSED [ 29%]
+tests/test_api_voting.py::test_cast_vote_returns_receipt PASSED          [ 31%]
+tests/test_api_voting.py::test_double_vote_rejected PASSED               [ 33%]
+tests/test_api_voting.py::test_pending_voter_cannot_vote PASSED          [ 35%]
+tests/test_api_voting.py::test_admin_cannot_vote PASSED                  [ 37%]
+tests/test_api_voting.py::test_vote_for_foreign_candidate_rejected PASSED [ 38%]
+tests/test_api_voting.py::test_vote_with_bad_payload_returns_400 PASSED  [ 40%]
+tests/test_api_voting.py::test_vote_on_closed_election_rejected PASSED   [ 42%]
+tests/test_api_voting.py::test_status_cannot_go_backwards PASSED         [ 44%]
+tests/test_api_voting.py::test_results_hidden_until_closed_then_correct PASSED [ 46%]
+tests/test_api_voting.py::test_receipt_verification PASSED               [ 48%]
+tests/test_api_voting.py::test_ballots_are_anonymous PASSED              [ 50%]
+tests/test_api_voting.py::test_integrity_check_detects_tampering PASSED  [ 51%]
+tests/test_api_voting.py::test_admin_approves_voter_and_audit_logged PASSED [ 53%]
+tests/test_api_voting.py::test_unknown_api_route_returns_json_404 PASSED [ 55%]
+tests/test_unit_core.py::test_compute_results_counts_and_percentages PASSED [ 57%]
+tests/test_unit_core.py::test_compute_results_detects_tie PASSED         [ 59%]
+tests/test_unit_core.py::test_compute_results_no_votes_and_invalid PASSED [ 61%]
+tests/test_unit_core.py::test_receipt_hash_is_deterministic_and_normalised PASSED [ 62%]
+tests/test_unit_core.py::test_hash_chain_valid PASSED                    [ 64%]
+tests/test_unit_core.py::test_hash_chain_detects_tampered_vote PASSED    [ 66%]
+tests/test_unit_core.py::test_hash_chain_detects_deleted_ballot PASSED   [ 68%]
+tests/test_unit_core.py::test_hash_chain_requires_secret_key PASSED      [ 70%]
+tests/test_unit_validation.py::test_invalid_email_returns_error[user@] PASSED [ 72%]
+tests/test_unit_validation.py::test_invalid_email_returns_error[plainaddress] PASSED [ 74%]
+tests/test_unit_validation.py::test_invalid_email_returns_error[a@b] PASSED [ 75%]
+tests/test_unit_validation.py::test_invalid_email_returns_error[@x.com] PASSED [ 77%]
+tests/test_unit_validation.py::test_invalid_email_returns_error[] PASSED [ 79%]
+tests/test_unit_validation.py::test_invalid_email_returns_error[None] PASSED [ 81%]
+tests/test_unit_validation.py::test_invalid_email_returns_error[42] PASSED [ 83%]
+tests/test_unit_validation.py::test_valid_email_passes PASSED            [ 85%]
+tests/test_unit_validation.py::test_weak_passwords_rejected[short1A-at least 8] PASSED [ 87%]
+tests/test_unit_validation.py::test_weak_passwords_rejected[alllowercase1-upper and lower] PASSED [ 88%]
+tests/test_unit_validation.py::test_weak_passwords_rejected[NoDigitsHere-digit] PASSED [ 90%]
+tests/test_unit_validation.py::test_weak_passwords_rejected[-required] PASSED [ 92%]
+tests/test_unit_validation.py::test_strong_password_accepted PASSED      [ 94%]
+tests/test_unit_validation.py::test_voter_id_rules PASSED                [ 96%]
+tests/test_unit_validation.py::test_name_rules PASSED                    [ 98%]
+tests/test_unit_validation.py::test_clean_text_trims_and_limits PASSED   [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.13.18-final-0 _______________
+
+Name                                         Stmts   Miss  Cover
+----------------------------------------------------------------
+backend/__init__.py                              0      0   100%
+backend/app.py                                  38      2    95%
+backend/config.py                               38      5    87%
+backend/controllers/__init__.py                  0      0   100%
+backend/controllers/admin_controller.py         29      3    90%
+backend/controllers/auth_controller.py          65      2    97%
+backend/controllers/election_controller.py      79     18    77%
+backend/controllers/vote_controller.py          83      4    95%
+backend/extensions.py                            2      0   100%
+backend/middleware/__init__.py                   0      0   100%
+backend/middleware/auth.py                      40      2    95%
+backend/middleware/security.py                  49      7    86%
+backend/middleware/validation.py                58      3    95%
+backend/models/__init__.py                      70      0   100%
+backend/routes/__init__.py                       0      0   100%
+backend/routes/admin_routes.py                  27      0   100%
+backend/routes/auth_routes.py                   19      0   100%
+backend/routes/election_routes.py               50      8    84%
+backend/routes/vote_routes.py                   19      0   100%
+backend/utils/__init__.py                        0      0   100%
+backend/utils/audit.py                           6      0   100%
+backend/utils/crypto.py                         23      1    96%
+backend/utils/errors.py                          5      0   100%
+----------------------------------------------------------------
+TOTAL                                          700     55    92%
+============================== 54 passed in 8.07s ==============================

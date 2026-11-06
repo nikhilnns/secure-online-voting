@@ -1,0 +1,15 @@
+services:
+  voting:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      # Change these before any real deployment
+      ADMIN_EMAIL: admin@vote.local
+      ADMIN_PASSWORD: Admin@1234
+      SECRET_KEY: change-me-to-a-long-random-string
+      LEDGER_KEY: change-me-to-another-long-random-string
+    volumes:
+      - voting-data:/app/instance
+volumes:
+  voting-data:
